@@ -3,11 +3,11 @@
 /**
  * Base class for exceptions.
  *
- * @package Api
- * @subpackage Exceptions
+ * @package App
+ * @subpackage Exception
  */
 
-namespace Api\Exceptions;
+namespace App\Exception;
 
 class ExceptionBase extends \Exception
 {
@@ -100,7 +100,6 @@ class ExceptionBase extends \Exception
     public function __construct($error_code, $options = null, $previous = null)
     {
         if (empty($options) && array_key_exists($error_code, static::$error_list)) {
-
             $options = static::$error_list[$error_code];
             if (!isset($options['message']) && isset(self::$descriptions[$options['http_status_code']])) {
                 $options['message'] = self::$descriptions[$options['http_status_code']];
@@ -115,10 +114,6 @@ class ExceptionBase extends \Exception
 
             if (isset($options['message'])) {
                 $this->message = $options['message'];
-            }
-
-            if (isset($options['detail'])) {
-                $this->detail = $options['detail'];
             }
         }
 
@@ -135,8 +130,7 @@ class ExceptionBase extends \Exception
         return array(
             'error_code' => $this->error_code,
             'http_status_code' => $this->http_status_code,
-            'message' => $this->message,
-            'detail' => $this->detail,
+            'message' => $this->message
         );
     }
 

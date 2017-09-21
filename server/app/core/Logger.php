@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Logger for API.
+ * Logger for App.
  *
- * @package Api
+ * @package App
  */
 
-namespace Api;
+namespace App;
 
 class Logger
 {

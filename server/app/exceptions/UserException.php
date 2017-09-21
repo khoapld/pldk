@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Exception class for User API.
+ * Exception class for User App.
  *
- * @package Api
- * @subpackage Exceptions
+ * @package App
+ * @subpackage Exception
  */
 
-namespace Api\Exceptions;
+namespace App\Exception;
 
 class UserException extends ExceptionBase
 {

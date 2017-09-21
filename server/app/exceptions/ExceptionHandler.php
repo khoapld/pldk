@@ -3,14 +3,14 @@
 /**
  * Exception handler class.
  *
- * @package Api
- * @subpackage Exceptions
+ * @package App
+ * @subpackage Exception
  */
 
-namespace Api\Exceptions;
+namespace App\Exception;
 
 use Phalcon\Http\Response;
-use Api\Logger;
+use App\Logger;
 
 class ExceptionHandler
 {
@@ -29,18 +29,16 @@ class ExceptionHandler
             $res = array(
                 'error_code' => 99999,
                 'http_status_code' => 500,
-                'message' => 'Internal Server Error',
-                'detail' => $exception->getMessage(),
+                'message' => 'Internal Server Error - ' . $exception->getMessage()
             );
-            Logger::error('%d - %s', $res['error_code'], $res['detail']);
+            Logger::error('%d - %s', $res['error_code'], $res['message']);
         }
 
         $error = array(
-            'Error' => array(
-                'Code' => $res['error_code'],
-                'Message' => $res['message'],
-                'Detail' => $res['detail'],
-            ),
+            'code' => $res['error_code'],
+            'message' => $res['message'],
+            'data' => [],
+            'error' => [],
         );
 
         $response = new Response();

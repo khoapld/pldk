@@ -1,15 +1,15 @@
 <?php
 
-use Phalcon\Config,
-    Phalcon\DI\FactoryDefault,
-    Phalcon\Events\Manager as ManagerEvents,
-    Phalcon\Logger,
-    Phalcon\Logger\Adapter\File as FileAdapter,
-    Phalcon\Logger\Formatter\Line as LineFormatter,
-    Phalcon\Mvc\Collection\Manager as ManagerCollection,
-    Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql,
-    Api\Http\Request,
-    Api\Filter;
+use Phalcon\Config;
+use Phalcon\DI\FactoryDefault;
+use Phalcon\Events\Manager as ManagerEvents;
+use Phalcon\Logger;
+use Phalcon\Logger\Adapter\File as FileAdapter;
+use Phalcon\Logger\Formatter\Line as LineFormatter;
+use Phalcon\Mvc\Collection\Manager as ManagerCollection;
+use Phalcon\Db\Adapter\Pdo\Mysql as PdoMysql;
+use App\Http\Request;
+use App\Filter;
 
 $settings = require 'config.php';
 

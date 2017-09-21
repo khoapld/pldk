@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Validation class for API.
+ * Validation class for App.
  *
- * @package Api
+ * @package App
  */
 
-namespace Api;
+namespace App;
 
 class Validation extends \Phalcon\Validation
 {

@@ -3,11 +3,11 @@
 /**
  * Exception class for common errors.
  *
- * @package Api
- * @subpackage Exceptions
+ * @package App
+ * @subpackage Exception
  */
 
-namespace Api\Exceptions;
+namespace App\Exception;
 
 class CommonException extends ExceptionBase
 {
@@ -16,6 +16,10 @@ class CommonException extends ExceptionBase
      * @var array List of errors.
      */
     protected static $error_list = array(
+        ExceptionCode::E_SYSTEM_ERROR => array(
+            'http_status_code' => 500,
+            'detail' => 'E_SYSTEM_ERROR',
+        ),
         ExceptionCode::E_COMMON_NOT_FOUND => array(
             'http_status_code' => 404,
             'detail' => 'Sorry, the resource you requested is not found',

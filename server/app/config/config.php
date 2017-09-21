@@ -5,10 +5,10 @@ return array(
      * Settings for developer.
      */
     'dev' => array(
-        'host' => 'localhost',
+        'host' => '192.168.153.20',
         'username' => 'root',
-        'password' => '123456',
-        'dbname' => 'wjshop',
+        'password' => '123',
+        'dbname' => 'call_system_dev',
         'charset' => 'utf8'
     ),
     /**

@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'handler' => 'Api\Controllers\UserController',
+    'handler' => 'App\Controller\UserController',
     'lazy' => true,
     'prefix' => '/v1/user',
     'route' => array(

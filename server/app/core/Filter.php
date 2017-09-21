@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Filter class for API.
+ * Filter class for App.
  *
- * @package Api
+ * @package App
  */
 
-namespace Api;
+namespace App;
 
 class Filter extends \Phalcon\Filter
 {

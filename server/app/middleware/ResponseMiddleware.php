@@ -1,12 +1,12 @@
 <?php
 
-namespace Api\Middleware;
+namespace App\Middleware;
 
 use Phalcon\Mvc\Micro as App,
     Phalcon\Mvc\Micro\MiddlewareInterface,
     Phalcon\Http\ResponseInterface,
-    Api\Exceptions\ExceptionCode,
-    Api\Exceptions\CommonException;
+    App\Exceptions\ExceptionCode,
+    App\Exceptions\CommonException;
 
 class ResponseMiddleware implements MiddlewareInterface
 {

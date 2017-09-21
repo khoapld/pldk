@@ -1,12 +1,13 @@
 <?php
 
-namespace Api\Models;
+namespace App\Model;
 
 use Phalcon\Mvc\Model;
+use Phalcon\Mvc\Model\Behavior\Timestampable;
+use Phalcon\Mvc\Model\Behavior\SoftDelete;
 
 class User extends Model
 {
-
     /**
      * Mapping User class with users table
      *
@@ -14,7 +15,7 @@ class User extends Model
      */
     public function getSource()
     {
-        return 'users';
+        return 'm_employee';
     }
 
     /**
@@ -24,11 +25,30 @@ class User extends Model
      */
     public function initialize()
     {
-
+        $this->setSource('m_employee');
+        $this->addBehavior(new Timestampable(array(
+            'beforeValidationOnCreate' => array(
+                'field' => array(
+                    'create_time',
+                    'update_time'
+                ),
+                'format' => 'Y-m-d H:i:s'
+            ),
+            'beforeValidationOnUpdate' => array(
+                'field' => 'update_time',
+                'format' => 'Y-m-d H:i:s'
+            )
+            // beforeCreate | beforeUpdate
+        )));
+        $this->addBehavior(
+            new SoftDelete(array(
+            'field' => 'del_flg',
+            'value' => 1,
+        )));
     }
 
     /**
-     *  Initialize object
+     * Initialize object
      *
      */
     public function onConstruct()
@@ -39,23 +59,18 @@ class User extends Model
     public function beforeCreate()
     {
         // Set the creation date
-        $this->created_at = date('Y-m-d H:i:s');
+        // $this->created_at = date('Y-m-d H:i:s');
     }
 
     public function beforeUpdate()
     {
         // Set the modification date
-        $this->updated_at = date('Y-m-d H:i:s');
+        // $this->update_time = date('Y-m-d H:i:s');
     }
 
-    public function getUsers()
+    public function getId()
     {
-        try {
-            $phql = "SELECT * FROM Api\Models\User WHERE 1";
-            return $this->getModelsManager()->executeQuery($phql)->toArray();
-        } catch (Exception $e) {
-            return false;
-        }
+        return $this->id;
     }
 
 }

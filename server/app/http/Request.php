@@ -3,11 +3,11 @@
 /**
  * HTTP Request class.
  *
- * @package Api
+ * @package App
  * @subpackage Http
  */
 
-namespace Api\Http;
+namespace App\Http;
 
 use Phalcon\Http\Request\Exception as HttpRequestException;
 

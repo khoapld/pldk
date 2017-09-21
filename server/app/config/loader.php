@@ -5,15 +5,15 @@ use Phalcon\Loader;
 $loader = new Loader();
 
 $loader->registerNamespaces(array(
-    'Api' => APP_PATH . '/core/',
-    'Api\Controllers' => APP_PATH . '/controllers/',
-    'Api\Models' => APP_PATH . '/models/',
-    'Api\Validations' => APP_PATH . '/validations/',
-    'Api\Validators' => APP_PATH . '/validators/',
-    'Api\Middleware' => APP_PATH . '/middleware/',
-    'Api\Http' => APP_PATH . '/http/',
-    'Api\Library' => APP_PATH . '/library/',
-    'Api\Exceptions' => APP_PATH . '/exceptions/',
+    'App' => APP_PATH . '/core/',
+    'App\Controller' => APP_PATH . '/controllers/',
+    'App\Model' => APP_PATH . '/models/',
+    'App\Validation' => APP_PATH . '/validations/',
+    'App\Validator' => APP_PATH . '/validators/',
+    'App\Middleware' => APP_PATH . '/middleware/',
+    'App\Http' => APP_PATH . '/http/',
+    'App\Library' => APP_PATH . '/library/',
+    'App\Exception' => APP_PATH . '/exceptions/',
 ));
 
 $loader->register();
